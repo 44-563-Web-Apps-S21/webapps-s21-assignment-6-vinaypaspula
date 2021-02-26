@@ -20,10 +20,13 @@
 </form>
 
 
-<p id="result">This result will be displayed here</p>
+<p id="count">This correct count will be displayed here</p>
+
+<div class="container">
+    <img id="plantImage" src="Acacia.jpg" alt="Acacia image" width="200" height="200" onclick="rotateImage()">
+</div>
 
 <script> 
-
 var correct = 0;
 var wrong = 0;
 
@@ -36,13 +39,35 @@ function processGuess(){
         confirm("Congratulations")
     }
         else{
+        wrong++
         confirm("Sorry")
     }
 
-    out = document.getElementById("result")
-    out.innerHTML = correct
+    out = document.getElementById("count")
+    out.innerHTML = "Correct Attempts: " + correct +"     Wrong Attempts: " + wrong
 
 }
+
+
+var currentImage = 0;
+
+    function rotateImage(){
+        switch(currentImage){
+            case 0: 
+                currentImage++;
+                document.getElementById("plantImage").src = "Pachystachys.jpg"
+                break;
+            case 1:
+                currentImage++;
+                document.getElementById("plantImage").src = "Packera.jpg"
+                break;
+            case 2:
+                currentImage=0;
+                document.getElementById("plantImage").src = "Acacia.jpg"
+                break;
+        }
+    }
+
 </script>
 
 </body>
