@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>
+         Hidden page
+     </title>
+ </head>
+<body>
+
+<h2>Hidden things by Vinay Kumar Paspula</h2>
+
+<form>
+    <label for="secret_word">Enter the secret word</label>
+    <input type ="password" id="secret_word" name="secret_word" value="Secret"> <br>
+
+    <label for="guess_word">Enter a guess</label>
+    <input type ="text" id="guess_word" name="guess_word" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+
+<p id="result">This result will be displayed here</p>
+
+<script> 
+
+var correct = 0;
+var wrong = 0;
+
+function processGuess(){
+    secretword = document.getElementById("secret_word").value
+    guessword = document.getElementById("guess_word").value
+
+    if(secretword==guessword){
+        correct++
+        confirm("Congratulations")
+    }
+        else{
+        confirm("Sorry")
+    }
+
+    out = document.getElementById("result")
+    out.innerHTML = correct
+
+}
+</script>
+
+</body>
+</html> 
