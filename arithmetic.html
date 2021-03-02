@@ -8,7 +8,7 @@
  
 <body>
 
-<h2>Vinay computes</h2>
+<h2>Vinay Kumar Paspula computes</h2>
 
 <form>
     <label for="first_num">Enter a number</label>
@@ -23,14 +23,33 @@
 
 <p id="result">The result will be displayed here</p>
 
+<form>
+    <input type="radio" id="plus" name="plus" value="plus">
+    <label for="plus">+</label></br>
+  
+    <input type="radio" id="minus" name="minus" value="minus">
+    <label for="minus">-</label></br>
+
+    <input type="radio" id="times" name="times" value="times">
+    <label for="times">*</label></br>
+
+    <input type="radio" id="divide" name="divide" value="divide">
+    <label for="divide">/</label></br>
+  
+
+    <input type="button" onclick="processRadio()" value="Get values from radio group">
+  </form>
+
+  <p id="result2">The result will be displayed here</p>
+
+
 <script> 
 
 function permutations(){
-    console.log("Getting form values")
     fnum = document.getElementById("first_num").value
     snum = document.getElementById("second_num").value
     var product = 1;
-    
+
     let i=fnum;
 
     do{
@@ -41,6 +60,31 @@ function permutations(){
 
     out = document.getElementById("result")
     out.innerHTML = fnum+" permute "+snum+" is "+product
+}
+
+function processRadio(){
+    fnum = document.getElementById("first_num").value
+    snum = document.getElementById("second_num").value
+
+    fnum=parseInt(fnum);
+    snum=parseInt(snum);
+
+    if(document.getElementById("plus").checked){
+        fnum += snum;
+
+    }else if(document.getElementById("minus").checked){
+        fnum-=snum;
+
+    }else if(document.getElementById("times").checked){
+        fnum *= snum;
+
+    }else{
+        fnum /= snum;
+    }
+
+    out = document.getElementById("result2")
+    out.innerHTML = fnum
+    
 }
 </script>
 
